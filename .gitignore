@@ -1,0 +1,4 @@
+*.bak
+**/.DS_Store
+tmp/*
+public/*
