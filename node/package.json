@@ -1,5 +1,5 @@
 {
-    "name": "Hello Backbone/Sinatra/Node/Mongo"
+    "name": "Hello-Backbone-Sinatra-Node-Mongo"
   , "version": "0.0.1"
   , "private": true
   , "dependencies": {
