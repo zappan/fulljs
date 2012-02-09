@@ -1,16 +1,20 @@
 
+// @TODO: check out bootstrap.js code 
+// http://stackoverflow.com/questions/7732293/node-js-express-js-breaking-up-the-app-js-file
+
 /** Module dependencies */
 var express = require('express')
-  , mongoose = require("mongoose")
-  , models = require("./models")
+  //, mongoose = require("mongoose")
+  //, models = require("./models")
   , routes = require('./routes')
-  , db = require("./data/_dbConfig")
-  
-// connect to mongodb
-mongoose.connect('mongodb://' + db.user + ':' + db.pass + '@' + db.host + ':' + db.port + '/' + db.name)
+  //, dbConfig = require("./data/_dbConfig")  // needed for mongoose here, which is also commented out
+  // initialize express.js app
+  , app = module.exports = express.createServer();
 
-// initialize express.js app
-var app = module.exports = express.createServer();
+
+// connect to mongodb via mongoose
+//mongoose.connect('mongodb://' + dbConfig.user + ':' + dbConfig.pass + '@' + dbConfig.host + ':' + dbConfig.port + '/' + dbConfig.name)
+
 
 // Configuration
 app.configure(function(){

@@ -1,7 +1,17 @@
+var dbConfig = {
+        name : "<db-name>"
+      , host : "<host-address>"
+      , port : <port>
+      , user : "<username>"
+      , pass : "<password>"
+    }
+  , databaseUrl =       dbConfig.user + ':' + dbConfig.pass 
+                + '@' + dbConfig.host + ':' + dbConfig.port
+                + '/' + dbConfig.name
+                // "username:password@example.com/mydb"
+  , collections = ["users"]
+
+
 module.exports = {
-    name : "<db-name>"
-  , host : "<db.host.address>"
-  , port : <db-port>
-  , user : "<db-username>"
-  , pass : "<db-password>"
+  db : require("mongojs").connect(databaseUrl, collections)
 }

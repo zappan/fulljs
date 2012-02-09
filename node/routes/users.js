@@ -1,8 +1,10 @@
 // Repositories
 var UsersRepository = require("../data/UsersRepository").UsersRepository
 
+/*
 var mongoose = require('mongoose')
   , User = mongoose.model('User')
+*/
 
 /*
  * GET users
@@ -26,8 +28,16 @@ exports.index = function(req, res){
 };
 
 exports.new = function(req, res) {
+  // Mongoose way
+  /*
   var newUser = new User();
-  newUser.email = "zappan@kset.org"
+  newUser.email = "john.doe@example.com"
+  */
+
+  // MongoJS/MongoDB way
+  var newUser = {
+      email : "john.doe@example.com"
+  }
 
   // using repository
   UsersRepository.save(newUser, function(err){
