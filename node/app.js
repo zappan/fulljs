@@ -4,17 +4,8 @@
 
 /** Module dependencies */
 var express = require('express')
-  //, mongoose = require("mongoose")
-  //, models = require("./models")
   , routes = require('./routes')
-  //, dbConfig = require("./data/_dbConfig")  // needed for mongoose here, which is also commented out
-  // initialize express.js app
-  , app = module.exports = express.createServer();
-
-
-// connect to mongodb via mongoose
-//mongoose.connect('mongodb://' + dbConfig.user + ':' + dbConfig.pass + '@' + dbConfig.host + ':' + dbConfig.port + '/' + dbConfig.name)
-
+  , app = module.exports = express.createServer();    // initializes express.js app
 
 // Configuration
 app.configure(function(){

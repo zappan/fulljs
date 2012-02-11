@@ -5,6 +5,5 @@
   , "dependencies": {
       "express": ">= 2.4.3"
     , "mongojs": ""
-    , "mongoose": ""
   }
 }
