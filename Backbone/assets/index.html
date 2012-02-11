@@ -1,0 +1,45 @@
+<!doctype html>
+
+<!--[if lt IE 7]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+
+    <title>Backbone User Listing</title>
+
+    <!-- <link rel="stylesheet" href="style/screen.css" media="screen, projection">
+    <link rel="stylesheet" href="style/fancypants.css" media="screen, projection"> -->
+
+    <script src="public/js/vendor/modernizr-1.6.min.js"></script>
+    <script src="public/js/vendor/jquery-1.5.1.min.js"></script>
+    <script src="public/js/vendor/underscore.js"></script>
+    <script src="public/js/vendor/backbone.js"></script>
+    <script src="public/js/MyApplication.js"></script>
+    
+    <!-- ========== JAVASCRIPT TEMPLATES ========== -->
+    <script type="text/template" id="users-template">
+      <h3>All users in the database</h3>
+      <ul class="users">
+      </ul>
+    </script>
+
+    <script type="text/template" id="user-template">
+      <li>User email: <%= email %></li>
+    </script>
+
+    <!-- ======= END : JAVASCRIPT TEMPLATES ======= -->
+
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="users-container">
+        <h2>Users</h2>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
