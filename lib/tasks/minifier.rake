@@ -42,12 +42,12 @@ namespace :minifier do
 
   desc "combine javascript"
   task :combine_js do
-    combine(FileList['src/js/**/*.js'], 'public/js/MyApplication.js')
+    combine(FileList['Backbone/src/**/*.js'], 'public/js/MyApplication.js')
   end
 
   desc "combine css"
   task :combine_css do
-    combine(FileList['src/css/**/*.css'], 'public/css/MyApplication.css')
+    combine(FileList['Backbone/css/**/*.css'], 'public/css/MyApplication.css')
   end
 
 
@@ -57,13 +57,13 @@ namespace :minifier do
   desc "minify javascript"
   task :minify_js => :combine_js do
     #TODO: take combined file and minify to /target dir or something
-    #minify(FileList['src/js/**/*.js'], 'public/js/MyApplication.js')
+    #minify(FileList['public/js/MyApplication.js'], 'public/target/js/MyApplication.js')
   end
 
   desc "minify css"
   task :minify_css => :combine_css do
     #TODO: take combined file and minify to /target dir or something
-    #minify(FileList['public/style/**/*.css'])
+    #minify(FileList['public/css/MyApplication.css'], 'public/target/css/MyApplication.css')
   end
 
 end

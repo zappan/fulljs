@@ -1,0 +1,3 @@
+MyApplication.Model.User = Backbone.Model.extend({
+  //...
+});

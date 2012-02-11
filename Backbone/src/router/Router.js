@@ -1,0 +1,3 @@
+MyApplication.Router = Backbone.Router.extend({
+  //...
+});
