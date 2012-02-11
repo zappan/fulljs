@@ -1,4 +1,5 @@
 *.bak
+.DS_Store
 **/.DS_Store
 tmp/*
 public/*
