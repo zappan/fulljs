@@ -6,7 +6,6 @@ MyApplication.View.Users = Backbone.View.extend({
   },
   
   render: function () {
-    
     var $users,
         usersCollection = this.collection;
 
@@ -23,6 +22,5 @@ MyApplication.View.Users = Backbone.View.extend({
     });
     
     return this;
-  };
-  
+  }
 });
