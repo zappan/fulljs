@@ -2,6 +2,10 @@
  * GET home page.
  */
 exports.index = function(req, res){
+  res.redirect('/index.html');     // returns text/html
+};
+
+exports.test = function(req, res){
   // uses view engine to render response (not configure, didn't need it)
   //res.render('index', { title: 'Express' });
   
