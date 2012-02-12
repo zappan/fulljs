@@ -1,14 +1,25 @@
 namespace :minifier do
 
+  # calculates order of inclusion for backbone files folders when combining
+  def path_order(path, path_include_order_arr=[])
+    path_include_order_arr.each_with_index {|order_path, i|
+      if path.start_with?(order_path) 
+        return i
+      end
+    }
+    path_include_order_arr.length
+  end
+
   def create_path(path)
     parentDir = File.split(path)[0]
     create_path parentDir unless parentDir === '.'
     Dir.mkdir path unless File.exists? path
   end
 
-  def sort_files(files)
-    files = files.map { |file| [file.count("/"), file] }
-    files = files.sort.map { |file| file[1] }
+  def sort_files(files, path_include_order_arr)
+    # sort by file depth, and backbone path priority order
+    files = files.map { |file| [path_order(file, path_include_order_arr), file.count("/"), file] }
+    files = files.sort.map { |file| file[2] }
   end
 
   def minify(files, target)
@@ -17,13 +28,13 @@ namespace :minifier do
     ret = system(cmd)
   end
 
-  def combine(files, target)
+  def combine(files, target, path_include_order_arr=[])
     puts
     puts "Combining files..."
 
     create_path File.dirname target
 
-    files = sort_files files
+    files = sort_files files, path_include_order_arr
     File.open(target, "w+") do |outfile|
       files.each do |srcfile|
         File.open(srcfile, "r") do |infile|
@@ -42,7 +53,11 @@ namespace :minifier do
 
   desc "combine javascript"
   task :combine_js do
-    combine(FileList['Backbone/src/**/*.js'], 'public/js/MyApplication.js')
+    backbone_path_include_order_arr = ["Backbone/src/startup.js",
+      "Backbone/src/model", "Backbone/src/collection", "Backbone/src/view", "Backbone/src/router",
+      "Backbone/src"
+    ]
+    combine(FileList['Backbone/src/**/*.js'], 'public/js/MyApplication.js', backbone_path_include_order_arr)
   end
 
   desc "combine css"
