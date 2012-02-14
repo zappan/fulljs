@@ -9,7 +9,7 @@ MyApplication.View.Users = Backbone.View.extend({
     var $users,
         usersCollection = this.collection;
 
-    $(this.el).html(this.template({}));              // fills template with no data
+    this.$el.html(this.template({}));              // fills template with no data
     $users = this.$(".users");                       //sets the place in rendered HTML view (template from initialize function)
     
     usersCollection.each(function(user) {
