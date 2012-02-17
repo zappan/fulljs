@@ -14,5 +14,6 @@ var dbConfig = {
 
 // connect to mongodb via MongoJS + MongoDB native
 module.exports = {
-  db : require("mongojs").connect(databaseUrl, collections)
+    db : require("mongojs").connect(databaseUrl, collections)
+  , ObjectId : require("mongojs").ObjectId
 }
