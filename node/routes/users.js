@@ -11,6 +11,33 @@ exports.index = function(req, res){
   });
 };
 
+/*
+ * POST /users
+ * Creates new user
+ */
+exports.create = function(req, res) {
+  UsersRepository.save(req.body, function(err){
+    if (err) res.json(err, 500);
+    else res.send(req.body);
+  });
+};
+
+/*
+ * PUT /users/id
+ * Updates existing user
+ */
+exports.update = function(req, res) {
+  UsersRepository.update(req.body, function(err){
+    if (err) res.json(err, 500);
+    else res.send(req.body);
+  });
+};
+
+
+/*
+ * Temporary testing method to create dummy user using GET request
+ * Will be removed in the future
+ */
 exports.new = function(req, res) {
   var newUser = {
       email : "john.doe@example.com"
@@ -21,4 +48,4 @@ exports.new = function(req, res) {
     if (err) res.json(err, 500);
     else res.redirect("/users");
   });
-}
+};

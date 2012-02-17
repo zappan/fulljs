@@ -29,6 +29,8 @@ app.configure('production', function(){
 // Routes
 app.get('/', routes.index);
 app.get('/users', routes.users);
+app.post('/users', routes.users.create)
+app.put('/users/:id', routes.users.update);
 app.get('/users/new', routes.users.new);
 
 app.listen(3000);

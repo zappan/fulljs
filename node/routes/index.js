@@ -8,4 +8,6 @@ var home    = require("./home")
 
 exports.index = home.index;
 exports.users = users.index;
+exports.users.create = users.create;
+exports.users.update = users.update;
 exports.users.new = users.new;
