@@ -1,6 +1,9 @@
 MyApplication.View.User = Backbone.View.extend({
   initialize: function () {
     this.template = _.template($('#user-template').html());   // initializes the jQuery template
+    
+    _.bindAll(this,'render');
+    this.model.bind('change', this.render);
   },
   
   render: function () {
