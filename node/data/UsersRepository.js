@@ -1,41 +1,27 @@
 var db = require("../data/_dbConfig").db
-  , ObjectId = require("../data/_dbConfig").ObjectId;
+  , ObjectId = require("../data/_dbConfig").ObjectId
+  , commonRepository = require("./CommonRepository").Repository;
 
 UsersRepository = function() {};
 
 // findAll
 UsersRepository.prototype.findAll = function(callback) {
-  db.users.find({}, function(err, users) {
-    if (err) return callback(err)
-    else callback(null, users);
-  });
+  commonRepository.findAll(db.users, callback);
 };
 
 // findById
 UsersRepository.prototype.findById = function(id, callback) {
-  db.users.findOne({ _id : id }, function(err, users) {
-    if (err) return callback(err)
-    else callback(null, users);
-  });
+  commonRepository.findById(db.users, callback);
 };
 
 // save
 UsersRepository.prototype.save = function(user, callback) {
-  db.users.insert(user, function(err, result) {
-    if (err) return callback(err)
-    else callback(null, user);
-  });
+  commonRepository.save(db.users, user, callback);
 };
 
 // update
 UsersRepository.prototype.update = function(user, callback) {
-  var userId = ObjectId(user._id);
-  delete user._id;
-
-  db.users.update({ "_id" : userId }, { $set : user }, function(err, result) {
-    if (err || !result) return callback(err)
-    else callback(null, user);
-  });
+  commonRepository.update(db.users, user, callback);
 };
 
-exports.UsersRepository = new UsersRepository();
+exports.Repository = new UsersRepository();

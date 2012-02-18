@@ -1,14 +1,12 @@
 // Repositories
-var UsersRepository = require("../data/UsersRepository").UsersRepository
+var repository = require("../data/UsersRepository").Repository
+  , commons = require("./commons");
 
 /*
  * GET users
  */
 exports.index = function(req, res){
-  UsersRepository.findAll(function(err, docs) {
-    if (err) res.json(err, 500);
-    else res.json(docs);
-  });
+  commons.index(repository, req, res);
 };
 
 /*
@@ -16,10 +14,7 @@ exports.index = function(req, res){
  * Creates new user
  */
 exports.create = function(req, res) {
-  UsersRepository.save(req.body, function(err){
-    if (err) res.json(err, 500);
-    else res.send(req.body);
-  });
+  commons.create(repository, req, res);
 };
 
 /*
@@ -27,10 +22,7 @@ exports.create = function(req, res) {
  * Updates existing user
  */
 exports.update = function(req, res) {
-  UsersRepository.update(req.body, function(err){
-    if (err) res.json(err, 500);
-    else res.send(req.body);
-  });
+  commons.update(repository, req, res);
 };
 
 
@@ -44,7 +36,7 @@ exports.new = function(req, res) {
   }
 
   // using repository
-  UsersRepository.save(newUser, function(err){
+  repository.save(newUser, function(err){
     if (err) res.json(err, 500);
     else res.redirect("/users");
   });
