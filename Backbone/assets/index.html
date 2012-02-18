@@ -29,8 +29,20 @@
     </script>
 
     <script type="text/html" id="user_template">
-      <li>User email: {{email}}</li>
+      <li>User email: {{email}} <button class="edit-button" type="button">Edit me</button></li>
     </script>
+
+    <script type="text/html" id="user_edit_template">
+      <form id="edit-user" name="post">
+        <div class="field">
+          <label for="email"> E-mail:</label>
+          <input type="text" name="email" value="{{email}}" >
+          <input type="submit" value="Update User" />
+          <button class="cancel-button" type="button">Cancel</button>
+        </div>
+      </form>
+    </script>
+    
 
     <!-- ======= END : JAVASCRIPT TEMPLATES ======= -->
 
