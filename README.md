@@ -24,16 +24,44 @@ Visit the webserver at:
 
 _NOTE: Sinatra backend currently has no working API code_
 
-#### Starting Node.js backend
+#### Configuring Node.js application
 
-Before the first run after cloning the repo, there's a need to symlink 'public' folder from node's root, and set up MongoDB.
+Before the first run, there are several configuration steps that need to be done:
+
+##### 1) Symlink 'public' folder from node's root.
 
 From application's directory in console, type the following:
 
-	cd node
-	ln -s ../public public
+  cd node
+  ln -s ../public public
 
-Then open `node/data/_dbConfig.js` in the text editor and fill in the database credentials. You may grab a free cloud instance of MongoDB for testing at http://www.mongolab.com/ or http://www.mongohq.com/
+##### 2) Set up MongoDB
+
+Then open (create if missing) `node/data/_db.config` in the text editor and fill in the database credentials, using the following file format:
+
+    var dbConfig = {
+            name : "<db-name>"
+          , host : "<host-address>"
+          , port : <port>
+          , user : "<username>"
+          , pass : "<password>"
+        };
+
+    // exports credentials
+    module.exports = { dbConfig : dbConfig }
+
+You may grab a free cloud instance of MongoDB for testing at http://www.mongolab.com/ or http://www.mongohq.com/
+
+##### 3) Install Node.js application dependencies
+
+Before the first run, Node application dependencies have to be installed by running the following from '/node' directory:
+
+    npm install -d
+
+The same procedure is used for future dependencies updates.
+
+
+#### Starting Node.js backend
 
 To start Node.js backend app, open the console, and from '/node' directory run:
 
