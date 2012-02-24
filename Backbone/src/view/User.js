@@ -7,7 +7,7 @@ MyApplication.View.User = Backbone.View.extend({
   events:{
     'click .edit-button' : 'click_enterEditState',
     'click .cancel-button' : 'click_leaveEditState',
-    'submit #edit-user' : 'click_submit'
+    'click #update-user' : 'click_submit'
   },
   
   render: function () {
@@ -28,8 +28,8 @@ MyApplication.View.User = Backbone.View.extend({
       ? ich.user_edit_template(this.model.toJSON())
       : ich.user_template(this.model.toJSON());
         
-    this.$el.html(renderedContent);                                 // attachs to parent? => [TC] attaches rendered HTML to the view's top-level DOM element
-    return this;                                                    // enables chaining
+    this.$el.html(renderedContent);
+    return this;
   },
   
   click_enterEditState: function() {
