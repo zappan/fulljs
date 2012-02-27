@@ -1,6 +1,6 @@
 MyApplication.View.User = Backbone.View.extend({
   initialize: function () {
-    _.bindAll(this, 'render', 'click_leaveEditState', 'click_delete');
+    _.bindAll(this, 'render', 'click_leaveEditState', 'click_delete', 'keyupEnter_update');
     this.model.bind('change', this.render);
   },
   
@@ -8,7 +8,8 @@ MyApplication.View.User = Backbone.View.extend({
     'click .edit-button' : 'click_enterEditState',
     'click .cancel-button' : 'click_leaveEditState',
     'click #update-user' : 'click_update',
-    'click .delete-button': 'click_delete'
+    'click .delete-button': 'click_delete',
+    'keyup #edit-user': 'keyupEnter_update'
   },
   
   render: function () {
@@ -47,7 +48,11 @@ MyApplication.View.User = Backbone.View.extend({
   click_update: function(e) {
     e.preventDefault();
     e.stopPropagation();
-    
+
+    this.update_user();    
+  },
+  
+  update_user: function() {
     var thisView = this
       , email = this.$("input[name='email']").val();
     
@@ -70,6 +75,12 @@ MyApplication.View.User = Backbone.View.extend({
     });
     
     this.collection.trigger('reset');
+  },
+  
+  keyupEnter_update: function(e) {
+    if (e.which === 13 ) {
+      this.update_user();
+    }
   }
   
 });
