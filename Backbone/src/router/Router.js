@@ -15,11 +15,14 @@ MyApplication.Router = Backbone.Router.extend({
 
   home: function(){
     var users = this.Collections.Users
-      , usersView;
+      , usersView
+      , newUserView;
 
     usersView = new MyApplication.View.Users({collection: users});
+    newUserView = new MyApplication.View.NewUser({collection: users});
 
 	  $('#users-container').append(usersView.render().el);
+	  $('#myModal').append(newUserView.render().el);
 	  
   	users.fetch();
   }

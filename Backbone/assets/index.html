@@ -13,18 +13,29 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <script src="/js/vendor/modernizr-1.6.min.js"></script>
-    <script src="/js/vendor/jquery-1.5.1.min.js"></script>
+    <script src="/js/vendor/jquery-1.7.1.min.js"></script>
     <script src="/js/vendor/mustache.js" ></script>
     <script src="/js/vendor/ICanHaz.min.js" ></script>
     <script src="/js/vendor/underscore.js"></script>
     <script src="/js/vendor/backbone.js"></script>
+    <script src="/js/vendor/bootstrap-transition.js"></script>
+    <script src="/js/vendor/bootstrap-modal.js"></script>
     <script src="/js/MyApplication.js"></script>
     
     <!-- ========== JAVASCRIPT TEMPLATES ========== -->
     <script type="text/html" id="users_template">
-      <h3>All users in the database</h3>
-      <ul class="users">
-      </ul>
+      <h2>All users in the database</h2>
+      
+      <div class="row">
+        <div class="offset4">
+          <button class="btn btn-success" id="new-user" type="button">
+            <i class="icon-plus icon-white"></i> Add new user
+          </button>
+        </div>
+      </div>
+      
+      <div class="users">
+      </div>
     </script>
 
     <script type="text/html" id="user_template">
@@ -49,6 +60,23 @@
     </script>
     
 
+    <script type="text/html" id="user_new_template">    
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Add new user</h3>
+      </div>
+    
+      <div class="modal-body">
+        New user e-mail:
+        <input class="inline" type="text" name="new-user-email" value="" >
+      </div>
+    
+      <div class="modal-footer">
+        <a href="#" class="btn btn-primary" id="create-new-user">Create user</a>
+        <a href="#" class="btn" id="cancel-new-user">Cancel</a>
+      </div>
+    </script>
+
     <!-- ======= END : JAVASCRIPT TEMPLATES ======= -->
 
   </head>
@@ -67,5 +95,10 @@
         </div>
       </div>
     </div>
+    
+    <!-- ======= Modal for new user - hidden ======= -->
+    <div class="modal hide fade" id="myModal">
+    </div>    
+    
   </body>
 </html>

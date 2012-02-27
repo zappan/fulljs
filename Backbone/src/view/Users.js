@@ -2,6 +2,11 @@ MyApplication.View.Users = Backbone.View.extend({
   initialize: function () {
     _.bindAll(this,'render');
     this.collection.bind('reset', this.render);
+
+  },
+  
+  events:{
+    'click #new-user': 'click_newUser'    // opens a modal with new user form
   },
   
   render: function () {
@@ -21,5 +26,11 @@ MyApplication.View.Users = Backbone.View.extend({
     });
     
     return this;
+  },
+  
+  click_newUser: function(){
+    $('input', '#myModal').val("");
+    $('#myModal').modal('show')
   }
+  
 });
