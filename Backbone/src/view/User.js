@@ -34,6 +34,9 @@ MyApplication.View.User = Backbone.View.extend({
   },
   
   click_enterEditState: function() {
+    this.collection.each(function(user) {
+      user.leaveEditState();
+    })
     this.model.enterEditState();
   },
   
