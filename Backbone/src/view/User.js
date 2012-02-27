@@ -1,13 +1,14 @@
 MyApplication.View.User = Backbone.View.extend({
   initialize: function () {
-    _.bindAll(this, 'render', 'click_leaveEditState');
+    _.bindAll(this, 'render', 'click_leaveEditState', 'click_delete');
     this.model.bind('change', this.render);
   },
   
   events:{
     'click .edit-button' : 'click_enterEditState',
     'click .cancel-button' : 'click_leaveEditState',
-    'click #update-user' : 'click_submit'
+    'click #update-user' : 'click_update',
+    'click .delete-button': 'click_delete'
   },
   
   render: function () {
@@ -40,7 +41,7 @@ MyApplication.View.User = Backbone.View.extend({
     this.model.leaveEditState();
   },
   
-  click_submit: function(e) {
+  click_update: function(e) {
     e.preventDefault();
     e.stopPropagation();
     
@@ -51,6 +52,21 @@ MyApplication.View.User = Backbone.View.extend({
     this.model.save(null, {
         success: thisView.click_leaveEditState
     });
+  },
+  
+  click_delete: function(e) {
+    var thisView = this;
+    
+    this.model.destroy({
+      success: function() {
+        console.log("Success");
+      },
+      error: function() {
+        console.log("Delete not successful!");
+      }
+    });
+    
+    this.collection.trigger('reset');
   }
   
 });
