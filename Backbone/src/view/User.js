@@ -70,6 +70,8 @@ MyApplication.View.User = Backbone.View.extend({
         console.log("Success");
       },
       error: function() {
+        var warning = '<div style="position:fixed; top:20px; left: 550px;"><span class="label label-warning">Delete not successful!</span></div>';
+        $(warning).appendTo('body').fadeIn(600).delay(4e3).fadeOut(600);
         console.log("Delete not successful!");
       }
     });
