@@ -64,16 +64,19 @@ MyApplication.View.User = Backbone.View.extend({
   
   click_delete: function(e) {
     var thisView = this;
-    
+
+    if ( !confirm("Do you want to delete the user?") ) {
+      return false;
+    }
+
     this.model.destroy({
       success: function() {
-        console.log("Success");
+        thisView.displayAlert("success", "Delete successful!");
       },
       error: function() {
-        var warning = '<div style="position:fixed; top:20px; left: 550px;"><span class="label label-warning">Delete not successful!</span></div>';
-        $(warning).appendTo('body').fadeIn(600).delay(4e3).fadeOut(600);
-        console.log("Delete not successful!");
-      }
+        thisView.displayAlert("error", "Delete not successful!");
+      },
+      wait: true
     });
     
     this.collection.trigger('reset');
@@ -83,6 +86,16 @@ MyApplication.View.User = Backbone.View.extend({
     if (e.which === 13 ) {
       this.update_user();
     }
+  },
+  
+  displayAlert: function(type, message) {
+    var elem = '<div class="alert alert-' + type + ' span5">' + message + '</div>'
+      , $alertArea = $('#alertDiv');
+    
+    $alertArea.empty();
+    $(elem).appendTo($alertArea).fadeIn(600).delay(4e3).fadeOut(600, function() {
+      $(this).remove();
+    });
   }
   
 });
