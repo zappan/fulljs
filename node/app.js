@@ -5,6 +5,7 @@
 /** Module dependencies */
 var express = require('express')
   , routes = require('./routes')
+  , appPort = process.env['app_port'] || 3000
   , app = module.exports = express.createServer();    // initializes express.js app
 
 // Configuration
@@ -33,5 +34,5 @@ app.post('/users', routes.users.create)
 app.put('/users/:id', routes.users.update);
 app.get('/users/new', routes.users.new);
 
-app.listen(3000);
+app.listen(appPort);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
