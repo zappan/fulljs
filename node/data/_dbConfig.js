@@ -1,4 +1,5 @@
-var dbDevConfig = require("../data/_db.config").dbConfig
+var dbDevConfigModule = require("../data/_db.config") || {}
+  , dbDevConfig = dbDevConfigModule.dbConfig;
 
 // config hash using env variables with fallback to dev config file
 var dbConfig = {
