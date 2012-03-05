@@ -25,6 +25,14 @@ exports.update = function(req, res) {
   commons.update(repository, req, res);
 };
 
+/*
+ * DELETE /users/id
+ * Deletes existing user
+ */
+exports.delete = function(req, res) {
+  commons.delete(repository, req, res);
+};
+
 
 /*
  * Temporary testing method to create dummy user using GET request

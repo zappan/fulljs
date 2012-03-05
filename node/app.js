@@ -32,6 +32,7 @@ app.get('/', routes.index);
 app.get('/users', routes.users);
 app.post('/users', routes.users.create)
 app.put('/users/:id', routes.users.update);
+app.delete('/users/:id', routes.users.delete);
 app.get('/users/new', routes.users.new);
 
 app.listen(appPort);
