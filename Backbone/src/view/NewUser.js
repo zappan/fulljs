@@ -1,4 +1,5 @@
-MyApplication.View.NewUser = Backbone.View.extend({
+MyApplication.View.NewUser = Backbone.View.extend(
+_.extend({}, MyApplication.View.Mixin.AlertView, {
   initialize: function () {
     _.bindAll(this,'render', 'userCreateSuccess', 'userCreateError', 'click_createUser', 'click_hideModal', 'keyupEnter_submit');
 
@@ -39,7 +40,7 @@ MyApplication.View.NewUser = Backbone.View.extend({
   },
   
   userCreateError: function() {
-    alert("User create unsuccessful!");
+    this.displayAlert("error", "User creation failed!");
   },
   
   keyupEnter_submit: function(e) {
@@ -49,4 +50,4 @@ MyApplication.View.NewUser = Backbone.View.extend({
     }
   }
 
-});
+}));

@@ -76,7 +76,7 @@ _.extend({}, MyApplication.View.Mixin.AlertView, {
         thisView.collection.trigger('reset');   // collection should be reset after successful model deletion
       },
       error: function() {
-        thisView.displayAlert("error", "Delete not successful!");
+        thisView.displayAlert("error", "User deletion failed!!");
       },
       wait: true
     });
