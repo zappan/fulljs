@@ -7,7 +7,7 @@ var dbConfig = process.env['dbname']
       , user : process.env['dbusername']
       , pass : process.env['dbpassword']
     }
-  : require("../data/_db.config").dbConfig;
+  : require("./_db.config").dbConfig;
 
     // "username:password@example.com/mydb"
 var databaseUrl =       dbConfig.user + ':' + dbConfig.pass 
