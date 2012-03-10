@@ -57,12 +57,21 @@ namespace :minifier do
       "Backbone/src/model", "Backbone/src/collection", "Backbone/src/view", "Backbone/src/router",
       "Backbone/src"
     ]
-    combine(FileList['Backbone/src/**/*.js'], 'public/js/MyApplication.js', backbone_path_include_order_arr)
+    combine(FileList['Backbone/src/**/*.js'], 'target/js/public/js/MyApplication.js', backbone_path_include_order_arr)
   end
 
   desc "combine css"
   task :combine_css do
-    combine(FileList['Backbone/css/**/*.css'], 'public/css/MyApplication.css')
+    combine(FileList['Backbone/css/**/*.css'], 'target/js/public/css/MyApplication.css')
+  end
+
+  desc "combine jasmine specs"
+  task :combine_jasmine do
+    backbone_path_include_order_arr = [
+      "Backbone/spec/model", "Backbone/spec/collection", "Backbone/spec/view", "Backbone/spec/router",
+      "Backbone/spec"
+    ]
+    combine(FileList['Backbone/spec/**/*.js'], 'target/js/spec/MyApplication.spec.js', backbone_path_include_order_arr)
   end
 
 

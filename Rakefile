@@ -8,7 +8,7 @@ end
 #config
 #  http://rake.rubyforge.org/files/lib/rake/clean_rb.html 
 #  http://onestepback.org/index.cgi/Tech/Rake/Tutorial/RakeTutorialRules.red)
-CLEAN.include(["public/*"])
+CLEAN.include(["target/*"])
 
 #tasks
 desc "Run the server"
@@ -27,7 +27,10 @@ end
 
 desc "Prepare and build test environment"
 task :buildtest => :build do
+  puts
   puts "Preparing test environment..."
-  puts "(TBD)"
+
+  Rake::Task["assets:copy_jasmine_assets"].invoke
+  Rake::Task["minifier:combine_jasmine"].invoke
 end
 

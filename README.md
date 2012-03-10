@@ -30,12 +30,12 @@ _NOTE: Sinatra backend currently has no working API code_
 
 Before the first run, there are several configuration steps that need to be done:
 
-##### 1) Symlink 'public' folder from node's root.
+##### 1) Symlink 'target/public' folder from node's root.
 
 From application's directory in console, type the following:
 
   cd node
-  ln -s ../public public
+  ln -s ../target/public public
 
 ##### 2) Set up MongoDB
 
