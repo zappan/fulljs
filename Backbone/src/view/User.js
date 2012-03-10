@@ -89,7 +89,7 @@ MyApplication.View.User = Backbone.View.extend({
   },
   
   displayAlert: function(type, message) {
-    var elem = '<div class="alert alert-' + type + ' span5">' + message + '</div>'
+    var elem = '<div class="alert alert-' + type + ' span5 offset2">' + message + '</div>'
       , $alertArea = $('#alertDiv');
     
     $alertArea.empty();

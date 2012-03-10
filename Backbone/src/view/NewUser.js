@@ -1,13 +1,14 @@
 MyApplication.View.NewUser = Backbone.View.extend({
   initialize: function () {
-    _.bindAll(this,'render', 'userCreateSuccess', 'userCreateError', 'click_createUser', 'click_hideModal');
+    _.bindAll(this,'render', 'userCreateSuccess', 'userCreateError', 'click_createUser', 'click_hideModal', 'keyupEnter_submit');
 
     $('#myModal').modal({ show: false });
   },
   
   events:{
     'click #create-new-user': 'click_createUser',
-    'click #cancel-new-user': 'click_hideModal'
+    'click #cancel-new-user': 'click_hideModal',
+    'keyup input': 'keyupEnter_submit'
   },
   
   render: function () {
@@ -39,6 +40,13 @@ MyApplication.View.NewUser = Backbone.View.extend({
   
   userCreateError: function() {
     alert("User create unsuccessful!");
+  },
+  
+  keyupEnter_submit: function(e) {
+    //thisView = this;  // isn't needed here
+    if (e.which === 13 ) {
+      this.click_createUser();
+    }
   }
 
 });

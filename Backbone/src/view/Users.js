@@ -30,7 +30,10 @@ MyApplication.View.Users = Backbone.View.extend({
   
   click_newUser: function(){
     $('input', '#myModal').val("");
-    $('#myModal').modal('show')
+    $('#myModal').modal('show');
+    setTimeout(function(){             // needs to be delayed otherwise focus() does not work
+      $('input', '#myModal').focus();  
+    }, 300);
   }
   
 });
