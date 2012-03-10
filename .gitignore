@@ -5,3 +5,4 @@ tmp/*
 public/*
 node/public
 node/data/_db.config
+nodester/*

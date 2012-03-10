@@ -30,3 +30,14 @@ exports.update = function(repository, req, res) {
   });
 };
 
+/*
+ * DELETE entity
+ * Deletes existing entity
+ */
+exports.delete = function(repository, req, res) {
+  repository.delete(req.params.id, function(err){
+    if (err) res.json(err, 500);
+    else res.send(req.body);
+  });
+};
+

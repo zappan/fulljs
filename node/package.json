@@ -2,6 +2,7 @@
     "name": "Hello-Backbone-Sinatra-Node-Mongo"
   , "version": "0.0.1"
   , "private": true
+  , "node": "0.6.12"
   , "dependencies": {
       "express": ">= 2.4.3"
     , "mongojs": ""

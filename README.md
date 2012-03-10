@@ -2,6 +2,8 @@
 
 This is a base prototype demo for setting up an infrastructure for a Backbone.js application, with a Node.js or Sinatra backend API talking to MongoDB
 
+There's a live preview available, running on Node.js backend, at: http://fulljs.nodester.com/
+
 
 ## USAGE
 
