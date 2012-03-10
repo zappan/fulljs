@@ -14,7 +14,11 @@
   
   <!-- include source dependencies here... -->
   <script type="text/javascript" src="public/js/vendor/modernizr-1.6.min.js"></script>
-  <script type="text/javascript" src="public/js/vendor/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="public/js/vendor/jquery-1.7.1.min.js"></script>  
+  <script type="text/javascript" src="public/js/vendor/mustache.js"></script>
+  <script type="text/javascript" src="public/js/vendor/ICanHaz.min.js"></script>
+  <script type="text/javascript" src="public/js/vendor/bootstrap-transition.js"></script>
+  <script type="text/javascript" src="public/js/vendor/bootstrap-modal.js"></script>
   <script type="text/javascript" src="public/js/vendor/underscore.js"></script>
   <script type="text/javascript" src="public/js/vendor/backbone.js"></script>
 
@@ -23,6 +27,66 @@
 
   <!-- include spec files here... -->
   <script type="text/javascript" src="spec/MyApplication.spec.js"></script>
+
+
+  <!-- ========== JAVASCRIPT TEMPLATES ========== -->
+
+  <script type="text/html" id="users_template">
+    <h2>All users in the database</h2>
+    
+    <div class="row">
+      <div class="offset4">
+        <button class="btn btn-success" id="new-user" type="button">
+          <i class="icon-plus icon-white"></i> Add new user
+        </button>
+      </div>
+    </div>
+    
+    <div class="users">
+    </div>
+  </script>
+
+  <script type="text/html" id="user_template">
+    <div class="row">
+      <div class="span4"> User email: {{email}} </div>
+      <button class="btn edit-button" type="button"><i class="icon-pencil"></i> Edit me</button>
+      <button class="btn btn-danger delete-button" type="button">
+        <i class="icon-trash icon-white"></i> Delete
+      </button>
+    </div>
+  </script>
+
+  <script type="text/html" id="user_edit_template">
+    <div class="row">
+      <div class="span4">
+        E-mail:
+        <input class="inline" id="edit-user" type="text" name="email" value="{{email}}" >
+      </div>
+      <button id="update-user" class="btn btn-primary">Update User</button>
+      <button class="btn cancel-button" type="button">Cancel</button>
+    </div>
+  </script>
+  
+
+  <script type="text/html" id="user_new_template">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal">Ã—</a>
+      <h3>Add new user</h3>
+    </div>
+  
+    <div class="modal-body">
+      New user e-mail:
+      <input class="inline" type="text" name="new-user-email" value="" >
+    </div>
+  
+    <div class="modal-footer">
+      <a href="#" class="btn btn-primary" id="create-new-user">Create user</a>
+      <a href="#" class="btn" id="cancel-new-user">Cancel</a>
+    </div>
+  </script>
+
+  <!-- ======= END : JAVASCRIPT TEMPLATES ======= -->
+
 
 </head>
 <body>
