@@ -1,4 +1,5 @@
-MyApplication.View.User = Backbone.View.extend({
+MyApplication.View.User = Backbone.View.extend(
+_.extend({}, MyApplication.View.Mixin.AlertView, {
   initialize: function () {
     _.bindAll(this, 'render', 'click_leaveEditState', 'click_delete', 'keyupEnter_update');
     this.model.bind('change', this.render);
@@ -79,23 +80,11 @@ MyApplication.View.User = Backbone.View.extend({
       },
       wait: true
     });
-    
   },
   
   keyupEnter_update: function(e) {
     if (e.which === 13 ) {
       this.update_user();
     }
-  },
-  
-  displayAlert: function(type, message) {
-    var elem = '<div class="alert alert-' + type + ' span5 offset2">' + message + '</div>'
-      , $alertArea = $('#alertDiv');
-    
-    $alertArea.empty();
-    $(elem).appendTo($alertArea).fadeIn(600).delay(4e3).fadeOut(600, function() {
-      $(this).remove();
-    });
   }
-  
-});
+}));

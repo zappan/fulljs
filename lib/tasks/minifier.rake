@@ -54,7 +54,10 @@ namespace :minifier do
   desc "combine javascript"
   task :combine_js do
     backbone_path_include_order_arr = ["Backbone/src/startup.js",
-      "Backbone/src/model", "Backbone/src/collection", "Backbone/src/view", "Backbone/src/router",
+      "Backbone/src/model/mixin", "Backbone/src/model",
+      "Backbone/src/collection/mixin", "Backbone/src/collection",
+      "Backbone/src/view/mixin", "Backbone/src/view",
+      "Backbone/src/router",
       "Backbone/src"
     ]
     combine(FileList['Backbone/src/**/*.js'], 'target/js/public/js/MyApplication.js', backbone_path_include_order_arr)
