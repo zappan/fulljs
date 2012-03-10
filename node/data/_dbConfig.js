@@ -1,11 +1,11 @@
 // config hash using env variables with fallback to dev config file
 var dbConfig = process.env['dbname']
   ? {
-        name : process.env['dbname']     || dbDevConfig.name
-      , host : process.env['dbhost']     || dbDevConfig.host
-      , port : process.env['dbport']     || dbDevConfig.port
-      , user : process.env['dbusername'] || dbDevConfig.user
-      , pass : process.env['dbpassword'] || dbDevConfig.pass
+        name : process.env['dbname']
+      , host : process.env['dbhost']
+      , port : process.env['dbport']
+      , user : process.env['dbusername']
+      , pass : process.env['dbpassword']
     }
   : require("../data/_db.config").dbConfig;
 
