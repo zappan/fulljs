@@ -73,7 +73,6 @@ _.extend({}, MyApplication.View.Mixin.AlertView, {
     this.model.destroy({
       success: function() {
         thisView.displayAlert("success", "Delete successful!");
-        thisView.collection.trigger('reset');   // collection should be reset after successful model deletion
       },
       error: function() {
         thisView.displayAlert("error", "User deletion failed!!");

@@ -1,7 +1,10 @@
 MyApplication.View.NewUser = Backbone.View.extend(
 _.extend({}, MyApplication.View.Mixin.AlertView, {
   initialize: function () {
-    _.bindAll(this,'render', 'userCreateSuccess', 'userCreateError', 'click_createUser', 'click_hideModal', 'keyupEnter_submit');
+    _.bindAll( this, 'render'
+               , 'userCreateSuccess', 'userCreateError'
+               , 'click_createUser', 'click_hideModal'
+               , 'keyupEnter_submit');
 
     $('#myModal').modal({ show: false });
   },
@@ -36,7 +39,7 @@ _.extend({}, MyApplication.View.Mixin.AlertView, {
   },
   
   userCreateSuccess: function(){
-    this.collection.trigger('reset');
+    this.displayAlert("success", "User created!");
   },
   
   userCreateError: function() {
