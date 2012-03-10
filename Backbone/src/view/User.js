@@ -65,13 +65,14 @@ MyApplication.View.User = Backbone.View.extend({
   click_delete: function(e) {
     var thisView = this;
 
-    if ( !confirm("Do you want to delete the user?") ) {
+    if ( !confirm("Do you want to delete the user " + this.model.get('email') + "?") ) {
       return false;
     }
 
     this.model.destroy({
       success: function() {
         thisView.displayAlert("success", "Delete successful!");
+        thisView.collection.trigger('reset');   // collection should be reset after successful model deletion
       },
       error: function() {
         thisView.displayAlert("error", "Delete not successful!");
@@ -79,7 +80,6 @@ MyApplication.View.User = Backbone.View.extend({
       wait: true
     });
     
-    this.collection.trigger('reset');
   },
   
   keyupEnter_update: function(e) {
