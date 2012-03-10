@@ -73,3 +73,21 @@ Visit the webserver at:
 
     http://localhost:3000
 
+
+## Running Specs
+
+##### Symlink 'public/tests' to Backbone/tests/
+
+From application's directory in console, type the following:
+
+    cd public
+    ln -s ../Backbone/tests tests
+
+(The above symlinking will break whenever a repo is pulled from GitHub so it needs to be repeated.)
+
+
+##### Running Specs
+
+See all specs at:
+
+    http://localhost:3000/tests/SpecRunner.html
