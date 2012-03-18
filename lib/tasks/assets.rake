@@ -5,7 +5,7 @@ namespace :assets do
     puts
     puts "Copying assets to '/target/js/public'..."
 
-    source = ['Backbone/assets/*']
+    source = ['backbone/assets/*']
     target = 'target/js/public/'
     
     FileUtils.mkdir_p target unless File.exists? target
@@ -16,11 +16,11 @@ namespace :assets do
 
 
   desc "copying jasmine tests assets to '/target/js'"
-  task :copy_jasmine_assets do
+  task :jasmine_copy_assets do
     puts
     puts "Copying jasmine tests assets to '/target/js'..."
 
-    source = ['Backbone/lib/', 'Backbone/SpecRunner.html']
+    source = ['backbone/lib/', 'backbone/SpecRunner.html']
     target = 'target/js/'
     
     FileUtils.mkdir_p target unless File.exists? target

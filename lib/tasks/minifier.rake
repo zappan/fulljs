@@ -53,28 +53,29 @@ namespace :minifier do
 
   desc "combine javascript"
   task :combine_js do
-    backbone_path_include_order_arr = ["Backbone/src/startup.js",
-      "Backbone/src/model/mixin", "Backbone/src/model",
-      "Backbone/src/collection/mixin", "Backbone/src/collection",
-      "Backbone/src/view/mixin", "Backbone/src/view",
-      "Backbone/src/router",
-      "Backbone/src"
+    backbone_path_include_order_arr = ["backbone/src/startup.js",
+      "backbone/src/model/mixin", "backbone/src/model",
+      "backbone/src/collection/mixin", "backbone/src/collection",
+      "backbone/src/view/mixin", "backbone/src/view",
+      "backbone/src/router",
+      "backbone/src"
     ]
-    combine(FileList['Backbone/src/**/*.js'], 'target/js/public/js/MyApplication.js', backbone_path_include_order_arr)
+    combine(FileList['backbone/src/**/*.js'], 'target/js/public/js/MyApplication.js', backbone_path_include_order_arr)
   end
 
   desc "combine css"
   task :combine_css do
-    combine(FileList['Backbone/css/**/*.css'], 'target/js/public/css/MyApplication.css')
+    combine(FileList['backbone/css/**/*.css'], 'target/js/public/css/MyApplication.css')
   end
 
+
   desc "combine jasmine specs"
-  task :combine_jasmine do
+  task :jasmine_combine do
     backbone_path_include_order_arr = [
-      "Backbone/spec/model", "Backbone/spec/collection", "Backbone/spec/view", "Backbone/spec/router",
-      "Backbone/spec"
+      "backbone/spec/model", "backbone/spec/collection", "backbone/spec/view", "backbone/spec/router",
+      "backbone/spec"
     ]
-    combine(FileList['Backbone/spec/**/*.js'], 'target/js/spec/MyApplication.spec.js', backbone_path_include_order_arr)
+    combine(FileList['backbone/spec/**/*.js'], 'target/js/spec/MyApplication.spec.js', backbone_path_include_order_arr)
   end
 
 

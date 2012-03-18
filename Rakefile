@@ -30,7 +30,7 @@ task :buildtest => :build do
   puts
   puts "Preparing test environment..."
 
-  Rake::Task["assets:copy_jasmine_assets"].invoke
-  Rake::Task["minifier:combine_jasmine"].invoke
+  Rake::Task["assets:jasmine_copy_assets"].invoke
+  Rake::Task["minifier:jasmine_combine"].invoke
 end
 
