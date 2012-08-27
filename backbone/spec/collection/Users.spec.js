@@ -15,5 +15,17 @@ describe("Users collection", function() {
     expect(this.server.requests[0].method).toEqual("GET");
     expect(this.server.requests[0].url).toEqual("/users");
   });
-  
+
+
+// ===== SPECS TO IMPLEMENT =====
+// "should reject duplicate email address"
+// "should reject email addresses identical up to case"
+
+// 
+// # validations for user authentication
+// describe "authenticate method" do
+// "should return null for an email address with no user" do
+// "should return null on email/password mismatch" do
+// "should return the user on email/password match" do
+
 });
