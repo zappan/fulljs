@@ -1,6 +1,6 @@
-# Application base prototype for a Backbone.js app, Node.js/Sinatra backend and MongoDB
+# FullJS - Example Backbone.js app with Node.js backend and MongoDB
 
-This is a base prototype demo for setting up an infrastructure for a Backbone.js application, with a Node.js or Sinatra backend API talking to MongoDB
+This is an application example showing how to set up an infrastructure for Backbone.js application backed with Nodejs REST API talking to MongoDB
 
 There's a live preview available, running on Node.js backend, at: http://fulljs.nodester.com/
 
@@ -13,18 +13,6 @@ To combine source javascript and CSS files into single application files, as wel
 
     rake build
 
-
-#### Starting Sinatra backend
-
-To start Sinatra backend app, from repository root run:
-
-    rake server
-
-Visit the webserver at:
-
-    http://localhost:9292
-
-_NOTE: Sinatra backend currently has no working API code_
 
 #### Configuring Node.js application
 
